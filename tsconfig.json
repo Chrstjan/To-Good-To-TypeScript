@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "CommonJS",
+        "strict": true,
+        "outDir": "dist",
+        "skipLibCheck": true //Skips all the type checking on node modules & libs
+    },
+    "include": ["src/**/*.ts"]
+}
