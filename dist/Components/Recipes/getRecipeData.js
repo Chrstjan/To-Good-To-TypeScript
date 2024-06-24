@@ -7,17 +7,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-export const myFetchData = (endpoint_1, ...args_1) => __awaiter(void 0, [endpoint_1, ...args_1], void 0, function* (endpoint, options = null) {
-    let response = "";
-    try {
-        response = yield fetch(endpoint, options);
-        console.log(response);
-        if (response.ok) {
-            const json = yield response.json();
-            return json;
-        }
-    }
-    catch (error) {
-        console.error(`Error in fetch: ${error}`);
-    }
+import { myFetchData } from "../../Utils/apiUtil.js";
+import { receivedRecipeData } from "./receivedRecipeData.js";
+export const getRecipes = () => __awaiter(void 0, void 0, void 0, function* () {
+    const endpoint = "https://dummyjson.com/recipes?limit=0";
+    const data = yield myFetchData(endpoint);
+    console.log(data);
+    receivedRecipeData(data);
 });

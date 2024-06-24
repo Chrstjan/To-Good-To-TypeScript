@@ -7,17 +7,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-export const myFetchData = (endpoint_1, ...args_1) => __awaiter(void 0, [endpoint_1, ...args_1], void 0, function* (endpoint, options = null) {
-    let response = "";
-    try {
-        response = yield fetch(endpoint, options);
-        console.log(response);
-        if (response.ok) {
-            const json = yield response.json();
-            return json;
-        }
-    }
-    catch (error) {
-        console.error(`Error in fetch: ${error}`);
-    }
+export const receivedRecipeData = (recipes) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(recipes);
 });
