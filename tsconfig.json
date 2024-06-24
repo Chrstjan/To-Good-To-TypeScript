@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "ES6",
-        "module": "ESNext",
+        "module": "ES6",
         "strict": true,
         "outDir": "dist",
         "skipLibCheck": true //Skips all the type checking on node modules & libs
