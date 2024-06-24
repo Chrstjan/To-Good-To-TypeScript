@@ -1,3 +1,3 @@
-# Js-Boilerplate-3.0
-Boilerplate 4.0
+# Too Good To TypeScript
+Too Good To Bo Remade with Scss & TypeScript
 Pages:
