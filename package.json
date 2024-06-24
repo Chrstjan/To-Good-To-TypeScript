@@ -1,0 +1,22 @@
+{
+  "name": "too-good-to-typescript",
+  "version": "1.0.0",
+  "description": "Remake of too good to bo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chrstjan/Too-Good-To-TypeScript.git"
+  },
+  "author": "Chrstjan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Chrstjan/Too-Good-To-TypeScript/issues"
+  },
+  "homepage": "https://github.com/Chrstjan/Too-Good-To-TypeScript#readme",
+  "dependencies": {
+    "typescript": "^5.5.2"
+  }
+}
