@@ -1,0 +1,28 @@
+@use "../../helpers/variables" as v;
+@use "../../helpers/mixins" as m;
+@use "../../helpers/functions" as f;
+@use "../../helpers/placeholders" as p;
+@use "../../helpers/fonts";
+
+.categories-container {
+  overflow-x: auto;
+  text-align: center;
+
+  .meal-categories {
+    @include m.flexBox(row, flex-start, center, 0.7rem);
+    @extend %padding-reset;
+    padding: 0rem 0.5rem;
+
+    li {
+      list-style: none;
+
+      button {
+        @extend %btn-remove-default;
+        padding: 1rem 1.5rem;
+        background: v.$button-background;
+        border-radius: 5px;
+        color: v.$header-text-color;
+      }
+    }
+  }
+}

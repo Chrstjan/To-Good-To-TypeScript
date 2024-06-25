@@ -1,0 +1,35 @@
+@use "../../helpers/variables" as v;
+@use "../../helpers/mixins" as m;
+@use "../../helpers/functions" as f;
+@use "../../helpers/placeholders" as p;
+@use "../../helpers/fonts";
+
+.selected-recipes {
+  text-align: center;
+  padding: 0rem 0.7rem;
+
+  .figure-container {
+    @include m.gridTemplate(1, 1fr);
+    justify-content: center;
+    align-items: center;
+
+    .recipe-figure {
+      @include m.flexBox(column, center, center, 0.6rem);
+      border: 2px solid #000;
+      border-radius: 12px;
+      padding: 0.5rem 0.7rem;
+
+      .recipe-header {
+        img {
+          width: 100%;
+        }
+      }
+
+      figcaption {
+        .ratings-container {
+          @include m.flexBox(row, center, center);
+        }
+      }
+    }
+  }
+}

@@ -1,3 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap");
+.categories-container .meal-categories li button, .main-header .search-container #search-btn {
+  border: 0;
+  background: transparent;
+}
+
+.categories-container .meal-categories {
+  padding: 0;
+}
+
+.main-header {
+  background: #19b2b8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+.main-header #header-logo {
+  width: 23vw;
+  padding: 0.7rem 0rem 0rem 0rem;
+}
+.main-header #header-name {
+  font-family: "Playwrite AU SA";
+  text-align: center;
+  color: #ffffff;
+}
+.main-header .search-container {
+  margin-bottom: 0.7rem;
+  position: relative;
+}
+.main-header .search-container #searchbar {
+  border: 0;
+  border-radius: 16px;
+  padding: 0.7rem 2.5rem;
+}
+.main-header .search-container #searchbar::-moz-placeholder {
+  text-align: left;
+  font-size: 15px;
+}
+.main-header .search-container #searchbar:-ms-input-placeholder {
+  text-align: left;
+  font-size: 15px;
+}
+.main-header .search-container #searchbar::placeholder {
+  text-align: left;
+  font-size: 15px;
+}
+.main-header .search-container #search-btn {
+  position: absolute;
+  left: 82%;
+  top: 10%;
+  font-size: 20px;
+}
+
+.categories-container {
+  overflow-x: auto;
+  text-align: center;
+}
+.categories-container .meal-categories {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0rem 0.5rem;
+}
+.categories-container .meal-categories li {
+  list-style: none;
+}
+.categories-container .meal-categories li button {
+  padding: 1rem 1.5rem;
+  background: #159a9e;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+.selected-recipes {
+  text-align: center;
+  padding: 0rem 0.7rem;
+}
+.selected-recipes .figure-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: center;
+  align-items: center;
+}
+.selected-recipes .figure-container .recipe-figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  border: 2px solid #000;
+  border-radius: 12px;
+  padding: 0.5rem 0.7rem;
+}
+.selected-recipes .figure-container .recipe-figure .recipe-header img {
+  width: 100%;
+}
+.selected-recipes .figure-container .recipe-figure figcaption .ratings-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 html {
   scroll-behavior: smooth;
 }
