@@ -1,0 +1,12 @@
+@use "../../helpers/variables" as v;
+@use "../../helpers/mixins" as m;
+@use "../../helpers/functions" as f;
+@use "../../helpers/placeholders" as p;
+@use "../../helpers/fonts";
+
+.category-recipes-container {
+  text-align: center;
+  .figure-container {
+    @include m.gridTemplate(2, 1fr);
+  }
+}
