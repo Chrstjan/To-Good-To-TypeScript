@@ -1,4 +1,5 @@
 import { buildRecipeCategories } from "./buildRecipeCategories.js";
+import { buildSelectedRecipes } from "./buildSelectedRecipes.js";
 
 export const receivedRecipeData = async (allRecipes: any) => {
   enum MealType {
@@ -11,7 +12,10 @@ export const receivedRecipeData = async (allRecipes: any) => {
     Beverage = "Beverage",
     Dessert = "Dessert",
   }
+
   let mealTypeCategories: any[] = [];
+  let randomSelectedRecipes: any[] = [];
+
   let dinnerArray: any[] = [];
   let lunchArray: any[] = [];
   let sideDishArray: any[] = [];
@@ -34,7 +38,14 @@ export const receivedRecipeData = async (allRecipes: any) => {
 
   const mealCategories = getMealTypeOnce(allRecipes.recipes);
   mealTypeCategories = Array.from(mealCategories); //Converts from set to array
-  console.log(mealTypeCategories);
+
+  randomSelectedRecipes.push(
+    allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)],
+    allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)],
+    allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)],
+    allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)]
+  );
+  console.log(randomSelectedRecipes);
 
   allRecipes.recipes.map((recipe: any) => {
     let mealTypeArray = recipe.mealType;
@@ -86,4 +97,5 @@ export const receivedRecipeData = async (allRecipes: any) => {
   console.log(miscArray);
 
   buildRecipeCategories(mealTypeCategories);
+  buildSelectedRecipes(randomSelectedRecipes);
 };

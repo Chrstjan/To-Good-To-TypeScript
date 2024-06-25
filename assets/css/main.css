@@ -75,6 +75,37 @@
   color: #ffffff;
 }
 
+.selected-recipes {
+  text-align: center;
+  padding: 0rem 0.7rem;
+}
+.selected-recipes .figure-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: center;
+  align-items: center;
+}
+.selected-recipes .figure-container .recipe-figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  border: 2px solid #000;
+  border-radius: 12px;
+  padding: 0.5rem 0.7rem;
+}
+.selected-recipes .figure-container .recipe-figure .recipe-header img {
+  width: 100%;
+}
+.selected-recipes .figure-container .recipe-figure figcaption .ratings-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 html {
   scroll-behavior: smooth;
 }

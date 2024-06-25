@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { buildRecipeCategories } from "./buildRecipeCategories.js";
+import { buildSelectedRecipes } from "./buildSelectedRecipes.js";
 export const receivedRecipeData = (allRecipes) => __awaiter(void 0, void 0, void 0, function* () {
     let MealType;
     (function (MealType) {
@@ -21,6 +22,7 @@ export const receivedRecipeData = (allRecipes) => __awaiter(void 0, void 0, void
         MealType["Dessert"] = "Dessert";
     })(MealType || (MealType = {}));
     let mealTypeCategories = [];
+    let randomSelectedRecipes = [];
     let dinnerArray = [];
     let lunchArray = [];
     let sideDishArray = [];
@@ -41,7 +43,8 @@ export const receivedRecipeData = (allRecipes) => __awaiter(void 0, void 0, void
     };
     const mealCategories = getMealTypeOnce(allRecipes.recipes);
     mealTypeCategories = Array.from(mealCategories); //Converts from set to array
-    console.log(mealTypeCategories);
+    randomSelectedRecipes.push(allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)]);
+    console.log(randomSelectedRecipes);
     allRecipes.recipes.map((recipe) => {
         let mealTypeArray = recipe.mealType;
         mealTypeArray.forEach((mealType) => {
@@ -83,4 +86,5 @@ export const receivedRecipeData = (allRecipes) => __awaiter(void 0, void 0, void
     console.log(lunchArray);
     console.log(miscArray);
     buildRecipeCategories(mealTypeCategories);
+    buildSelectedRecipes(randomSelectedRecipes);
 });
