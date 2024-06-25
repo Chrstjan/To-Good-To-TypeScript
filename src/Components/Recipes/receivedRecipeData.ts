@@ -102,35 +102,35 @@ export const categoryCallback = async (clickedCategory: any) => {
   const findCategory = (category: MealType) => {
     switch (category) {
       case MealType.Dinner:
-        buildCategoryRecipes(dinnerArray);
+        buildCategoryRecipes(dinnerArray, "Dinner");
         break;
 
       case MealType.Lunch:
-        buildCategoryRecipes(lunchArray);
+        buildCategoryRecipes(lunchArray, "Lunch");
         break;
 
       case MealType.Snacks:
-        buildCategoryRecipes(snacksArray);
+        buildCategoryRecipes(snacksArray, "Snacks");
         break;
 
       case MealType.Dessert:
-        buildCategoryRecipes(dessertArray);
+        buildCategoryRecipes(dessertArray, "Desserts");
         break;
 
       case MealType.SideDish:
-        buildCategoryRecipes(sideDishArray);
+        buildCategoryRecipes(sideDishArray, "Side Dish");
         break;
 
       case MealType.Appetizer:
-        buildCategoryRecipes(appetizerArray);
+        buildCategoryRecipes(appetizerArray, "Appetizer");
         break;
 
       case MealType.Beverage:
-        buildCategoryRecipes(beverageArray);
+        buildCategoryRecipes(beverageArray, "Beverage");
         break;
 
       case MealType.Breakfast:
-        buildCategoryRecipes(breakfastArray);
+        buildCategoryRecipes(breakfastArray, "Breakfast");
         break;
 
       default:

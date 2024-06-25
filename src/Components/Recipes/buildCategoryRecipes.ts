@@ -7,14 +7,17 @@ recipesContainer.classList.add("category-recipes-container");
 const figureContainer = document.createElement("span");
 figureContainer.classList.add("figure-container");
 
-export const buildCategoryRecipes = async (recipes: any[]) => {
+export const buildCategoryRecipes = async (
+  recipes: any[],
+  categoryName: string
+) => {
   console.log(recipes);
   clearContainer(figureContainer);
   clearContainer(recipesContainer);
 
   recipesContainer.innerHTML += `
     <header>
-        <h2>Category Name:</h2>
+        <h2>Category: ${categoryName}</h2>
     </header>`;
 
   recipes.map((recipe) => {

@@ -13,13 +13,13 @@ const recipesContainer = document.createElement("div");
 recipesContainer.classList.add("category-recipes-container");
 const figureContainer = document.createElement("span");
 figureContainer.classList.add("figure-container");
-export const buildCategoryRecipes = (recipes) => __awaiter(void 0, void 0, void 0, function* () {
+export const buildCategoryRecipes = (recipes, categoryName) => __awaiter(void 0, void 0, void 0, function* () {
     console.log(recipes);
     clearContainer(figureContainer);
     clearContainer(recipesContainer);
     recipesContainer.innerHTML += `
     <header>
-        <h2>Category Name:</h2>
+        <h2>Category: ${categoryName}</h2>
     </header>`;
     recipes.map((recipe) => {
         let recipeFigure = `

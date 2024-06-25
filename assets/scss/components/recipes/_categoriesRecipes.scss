@@ -6,7 +6,30 @@
 
 .category-recipes-container {
   text-align: center;
+
   .figure-container {
-    @include m.gridTemplate(2, 1fr);
+    @include m.gridTemplate(1, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 1.4rem;
+    padding-bottom: 1rem;
+
+    .recipe-figure {
+      border: 2px solid #000;
+      border-radius: 12px;
+      @extend %margin-reset;
+      margin: 0 2rem;
+      padding: 0.7rem 1rem;
+
+      .recipe-header {
+        img {
+          width: 100%;
+        }
+      }
+
+      .ratings-container {
+        @include m.flexBox(row, center, center);
+      }
+    }
   }
 }

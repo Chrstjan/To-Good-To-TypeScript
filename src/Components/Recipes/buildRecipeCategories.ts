@@ -1,4 +1,3 @@
-import { clearContainer } from "../app.js";
 import { categoryCallback } from "./receivedRecipeData.js";
 
 const app = document.getElementById("app");
