@@ -1,3 +1,5 @@
+import { buildRecipeCategories } from "./buildRecipeCategories.js";
+
 export const receivedRecipeData = async (allRecipes: any) => {
   enum MealType {
     Dinner = "Dinner",
@@ -31,7 +33,7 @@ export const receivedRecipeData = async (allRecipes: any) => {
   };
 
   const mealCategories = getMealTypeOnce(allRecipes.recipes);
-  mealTypeCategories.push(mealCategories);
+  mealTypeCategories = Array.from(mealCategories); //Converts from set to array
   console.log(mealTypeCategories);
 
   allRecipes.recipes.map((recipe: any) => {
@@ -82,4 +84,6 @@ export const receivedRecipeData = async (allRecipes: any) => {
   console.log(dinnerArray);
   console.log(lunchArray);
   console.log(miscArray);
+
+  buildRecipeCategories(mealTypeCategories);
 };

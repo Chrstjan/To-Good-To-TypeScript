@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap");
-.main-header .search-container #search-btn {
+.categories-container .meal-categories li button, .main-header .search-container #search-btn {
   border: 0;
   background: transparent;
+}
+
+.categories-container .meal-categories {
+  padding: 0;
 }
 
 .main-header {
@@ -47,6 +51,28 @@
   left: 82%;
   top: 10%;
   font-size: 20px;
+}
+
+.categories-container {
+  overflow-x: auto;
+  text-align: center;
+}
+.categories-container .meal-categories {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0rem 0.5rem;
+}
+.categories-container .meal-categories li {
+  list-style: none;
+}
+.categories-container .meal-categories li button {
+  padding: 1rem 1.5rem;
+  background: #159a9e;
+  border-radius: 5px;
+  color: #ffffff;
 }
 
 html {
