@@ -2,3 +2,44 @@
 @use "../../helpers/mixins" as m;
 @use "../../helpers/functions" as f;
 @use "../../helpers/placeholders" as p;
+@use "../../helpers/fonts";
+
+.main-header {
+  background: v.$header-background;
+  @include m.flexBox(column, center, center, 0.6rem);
+
+  #header-logo {
+    width: 23vw;
+    padding: 0.7rem 0rem 0rem 0rem;
+  }
+
+  #header-name {
+    font-family: "Playwrite AU SA";
+    text-align: center;
+    color: v.$header-text-color;
+  }
+
+  .search-container {
+    margin-bottom: 0.7rem;
+    position: relative;
+
+    #searchbar {
+      border: 0;
+      border-radius: 16px;
+      padding: 0.7rem 2.5rem;
+
+      &::placeholder {
+        text-align: left;
+        font-size: 15px;
+      }
+    }
+
+    #search-btn {
+      @extend %btn-remove-default;
+      position: absolute;
+      left: 82%;
+      top: 10%;
+      font-size: 20px;
+    }
+  }
+}

@@ -1,3 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap");
+.main-header .search-container #search-btn {
+  border: 0;
+  background: transparent;
+}
+
+.main-header {
+  background: #19b2b8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+.main-header #header-logo {
+  width: 23vw;
+  padding: 0.7rem 0rem 0rem 0rem;
+}
+.main-header #header-name {
+  font-family: "Playwrite AU SA";
+  text-align: center;
+  color: #ffffff;
+}
+.main-header .search-container {
+  margin-bottom: 0.7rem;
+  position: relative;
+}
+.main-header .search-container #searchbar {
+  border: 0;
+  border-radius: 16px;
+  padding: 0.7rem 2.5rem;
+}
+.main-header .search-container #searchbar::-moz-placeholder {
+  text-align: left;
+  font-size: 15px;
+}
+.main-header .search-container #searchbar:-ms-input-placeholder {
+  text-align: left;
+  font-size: 15px;
+}
+.main-header .search-container #searchbar::placeholder {
+  text-align: left;
+  font-size: 15px;
+}
+.main-header .search-container #search-btn {
+  position: absolute;
+  left: 82%;
+  top: 10%;
+  font-size: 20px;
+}
+
 html {
   scroll-behavior: smooth;
 }
