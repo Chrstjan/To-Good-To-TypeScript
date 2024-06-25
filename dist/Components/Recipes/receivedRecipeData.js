@@ -19,6 +19,7 @@ export const receivedRecipeData = (allRecipes) => __awaiter(void 0, void 0, void
         MealType["Beverage"] = "Beverage";
         MealType["Dessert"] = "Dessert";
     })(MealType || (MealType = {}));
+    let mealTypeCategories = [];
     let dinnerArray = [];
     let lunchArray = [];
     let sideDishArray = [];
@@ -28,6 +29,18 @@ export const receivedRecipeData = (allRecipes) => __awaiter(void 0, void 0, void
     let beverageArray = [];
     let dessertArray = [];
     let miscArray = [];
+    const getMealTypeOnce = (recipes) => {
+        const uniqueMealType = new Set();
+        recipes.forEach((recipe) => {
+            recipe.mealType.forEach((mealType) => {
+                uniqueMealType.add(mealType);
+            });
+        });
+        return uniqueMealType;
+    };
+    const mealCategories = getMealTypeOnce(allRecipes.recipes);
+    mealTypeCategories.push(mealCategories);
+    console.log(mealTypeCategories);
     allRecipes.recipes.map((recipe) => {
         let mealTypeArray = recipe.mealType;
         mealTypeArray.forEach((mealType) => {
