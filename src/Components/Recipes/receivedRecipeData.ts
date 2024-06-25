@@ -1,31 +1,32 @@
+import { buildCategoryRecipes } from "./buildCategoryRecipes.js";
 import { buildRecipeCategories } from "./buildRecipeCategories.js";
 import { buildSelectedRecipes } from "./buildSelectedRecipes.js";
 
+enum MealType {
+  Dinner = "Dinner",
+  Lunch = "Lunch",
+  SideDish = "Side Dish",
+  Appetizer = "Appetizer",
+  Snacks = "Snack",
+  Breakfast = "Breakfast",
+  Beverage = "Beverage",
+  Dessert = "Dessert",
+}
+
+let mealTypeCategories: any[] = [];
+let randomSelectedRecipes: any[] = [];
+
+let dinnerArray: any[] = [];
+let lunchArray: any[] = [];
+let sideDishArray: any[] = [];
+let appetizerArray: any[] = [];
+let snacksArray: any[] = [];
+let breakfastArray: any[] = [];
+let beverageArray: any[] = [];
+let dessertArray: any[] = [];
+let miscArray: any[] = [];
+
 export const receivedRecipeData = async (allRecipes: any) => {
-  enum MealType {
-    Dinner = "Dinner",
-    Lunch = "Lunch",
-    SideDish = "Side Dish",
-    Appetizer = "Appetizer",
-    Snacks = "Snack",
-    Breakfast = "Breakfast",
-    Beverage = "Beverage",
-    Dessert = "Dessert",
-  }
-
-  let mealTypeCategories: any[] = [];
-  let randomSelectedRecipes: any[] = [];
-
-  let dinnerArray: any[] = [];
-  let lunchArray: any[] = [];
-  let sideDishArray: any[] = [];
-  let appetizerArray: any[] = [];
-  let snacksArray: any[] = [];
-  let breakfastArray: any[] = [];
-  let beverageArray: any[] = [];
-  let dessertArray: any[] = [];
-  let miscArray: any[] = [];
-
   const getMealTypeOnce = (recipes: any[]): Set<MealType> => {
     const uniqueMealType = new Set<MealType>();
     recipes.forEach((recipe) => {
@@ -92,10 +93,50 @@ export const receivedRecipeData = async (allRecipes: any) => {
       sortMealTypes(mealType);
     });
   });
-  console.log(dinnerArray);
-  console.log(lunchArray);
-  console.log(miscArray);
 
   buildRecipeCategories(mealTypeCategories);
   buildSelectedRecipes(randomSelectedRecipes);
+};
+
+export const categoryCallback = async (clickedCategory: any) => {
+  const findCategory = (category: MealType) => {
+    switch (category) {
+      case MealType.Dinner:
+        buildCategoryRecipes(dinnerArray, "Dinner");
+        break;
+
+      case MealType.Lunch:
+        buildCategoryRecipes(lunchArray, "Lunch");
+        break;
+
+      case MealType.Snacks:
+        buildCategoryRecipes(snacksArray, "Snacks");
+        break;
+
+      case MealType.Dessert:
+        buildCategoryRecipes(dessertArray, "Desserts");
+        break;
+
+      case MealType.SideDish:
+        buildCategoryRecipes(sideDishArray, "Side Dish");
+        break;
+
+      case MealType.Appetizer:
+        buildCategoryRecipes(appetizerArray, "Appetizer");
+        break;
+
+      case MealType.Beverage:
+        buildCategoryRecipes(beverageArray, "Beverage");
+        break;
+
+      case MealType.Breakfast:
+        buildCategoryRecipes(breakfastArray, "Breakfast");
+        break;
+
+      default:
+        console.log("Category not found!");
+        break;
+    }
+  };
+  findCategory(clickedCategory);
 };

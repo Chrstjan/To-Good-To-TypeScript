@@ -4,6 +4,10 @@
   background: transparent;
 }
 
+.category-recipes-container .figure-container .recipe-figure {
+  margin: 0;
+}
+
 .categories-container .meal-categories {
   padding: 0;
 }
@@ -99,6 +103,34 @@
   width: 100%;
 }
 .selected-recipes .figure-container .recipe-figure figcaption .ratings-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.category-recipes-container {
+  text-align: center;
+}
+.category-recipes-container .figure-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+  padding-bottom: 1rem;
+}
+.category-recipes-container .figure-container .recipe-figure {
+  border: 2px solid #000;
+  border-radius: 12px;
+  margin: 0 2rem;
+  padding: 0.7rem 1rem;
+}
+.category-recipes-container .figure-container .recipe-figure .recipe-header img {
+  width: 100%;
+}
+.category-recipes-container .figure-container .recipe-figure .ratings-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
