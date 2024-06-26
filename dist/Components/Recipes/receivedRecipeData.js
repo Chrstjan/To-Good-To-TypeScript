@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { buildCategoryRecipes } from "./buildCategoryRecipes.js";
 import { buildRecipeCategories } from "./buildRecipeCategories.js";
+import { buildRecipeDetails } from "./buildRecipeDetails.js";
 import { buildSelectedRecipes } from "./buildSelectedRecipes.js";
 var MealType;
 (function (MealType) {
@@ -34,7 +35,8 @@ let beverageArray = [];
 let dessertArray = [];
 let miscArray = [];
 export const receivedRecipeData = (allRecipes) => __awaiter(void 0, void 0, void 0, function* () {
-    allRecipesArray.push(allRecipes.recipes); //the array will only be accessable in the recipeCallback if i use push and not a spread operator?
+    allRecipesArray = [...allRecipes.recipes];
+    recipeCallback(allRecipesArray); //This makes the allRecies array accessible in the recipeCallback function
     const getMealTypeOnce = (recipes) => {
         const uniqueMealType = new Set();
         recipes.forEach((recipe) => {
@@ -123,6 +125,13 @@ export const categoryCallback = (clickedCategory) => __awaiter(void 0, void 0, v
     findCategory(clickedCategory);
 });
 export const recipeCallback = (clickedRecipe) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(allRecipesArray);
+    console.log(clickedRecipe);
+    allRecipesArray.map((recipe) => {
+        if (clickedRecipe === recipe.name) {
+            buildRecipeDetails(recipe);
+        }
+        else {
+            //console.error("Recipe not found");
+        }
+    });
 });
-recipeCallback("Hello");

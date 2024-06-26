@@ -1,5 +1,6 @@
 import { buildCategoryRecipes } from "./buildCategoryRecipes.js";
 import { buildRecipeCategories } from "./buildRecipeCategories.js";
+import { buildRecipeDetails } from "./buildRecipeDetails.js";
 import { buildSelectedRecipes } from "./buildSelectedRecipes.js";
 
 enum MealType {
@@ -30,7 +31,8 @@ let miscArray: any[] = [];
 
 
 export const receivedRecipeData = async (allRecipes: any) => {
-  allRecipesArray.push(allRecipes.recipes); //the array will only be accessable in the recipeCallback if i use push and not a spread operator?
+  allRecipesArray = [...allRecipes.recipes];
+  recipeCallback(allRecipesArray); //This makes the allRecies array accessible in the recipeCallback function
   
   const getMealTypeOnce = (recipes: any[]): Set<MealType> => {
     const uniqueMealType = new Set<MealType>();
@@ -147,8 +149,16 @@ export const categoryCallback = async (clickedCategory: any) => {
   findCategory(clickedCategory);
 };
 
-export const recipeCallback = async (clickedRecipe: string) => {
-  console.log(allRecipesArray);
+export const recipeCallback = async (clickedRecipe: string | any[]) => {
+  console.log(clickedRecipe);
+  allRecipesArray.map((recipe) => {
+    if (clickedRecipe === recipe.name) {
+      buildRecipeDetails(recipe);
+    }
+    else {
+      //console.error("Recipe not found");
+      
+    }
+  })
+  
 }
-
-recipeCallback("Hello");
