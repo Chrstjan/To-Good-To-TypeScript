@@ -36,7 +36,7 @@ let dessertArray = [];
 let miscArray = [];
 export const receivedRecipeData = (allRecipes) => __awaiter(void 0, void 0, void 0, function* () {
     allRecipesArray = [...allRecipes.recipes];
-    recipeCallback(allRecipesArray); //This makes the allRecies array accessible in the recipeCallback function
+    recipeCallback(allRecipesArray); //This makes the allRecipes array accessible in the recipeCallback function
     const getMealTypeOnce = (recipes) => {
         const uniqueMealType = new Set();
         recipes.forEach((recipe) => {
@@ -48,6 +48,7 @@ export const receivedRecipeData = (allRecipes) => __awaiter(void 0, void 0, void
     };
     const mealCategories = getMealTypeOnce(allRecipes.recipes);
     mealTypeCategories = Array.from(mealCategories); //Converts from set to array
+    console.log(mealTypeCategories);
     randomSelectedRecipes.push(allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)]);
     console.log(randomSelectedRecipes);
     allRecipes.recipes.map((recipe) => {

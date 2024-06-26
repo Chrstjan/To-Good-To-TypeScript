@@ -1,3 +1,4 @@
+import { recipeInterface } from "../../Utils/interfaces.js";
 import { buildCategoryRecipes } from "./buildCategoryRecipes.js";
 import { buildRecipeCategories } from "./buildRecipeCategories.js";
 import { buildRecipeDetails } from "./buildRecipeDetails.js";
@@ -14,25 +15,25 @@ enum MealType {
   Dessert = "Dessert",
 }
 
-let allRecipesArray: any[] = [];
+let allRecipesArray: recipeInterface[] = [];
 
 let mealTypeCategories: any[] = [];
-let randomSelectedRecipes: any[] = [];
+let randomSelectedRecipes: recipeInterface[] = [];
 
-let dinnerArray: any[] = [];
-let lunchArray: any[] = [];
-let sideDishArray: any[] = [];
-let appetizerArray: any[] = [];
-let snacksArray: any[] = [];
-let breakfastArray: any[] = [];
-let beverageArray: any[] = [];
-let dessertArray: any[] = [];
-let miscArray: any[] = [];
+let dinnerArray: recipeInterface[] = [];
+let lunchArray: recipeInterface[] = [];
+let sideDishArray: recipeInterface[] = [];
+let appetizerArray: recipeInterface[] = [];
+let snacksArray: recipeInterface[] = [];
+let breakfastArray: recipeInterface[] = [];
+let beverageArray: recipeInterface[] = [];
+let dessertArray: recipeInterface[] = [];
+let miscArray: recipeInterface[] = [];
 
 
 export const receivedRecipeData = async (allRecipes: any) => {
   allRecipesArray = [...allRecipes.recipes];
-  recipeCallback(allRecipesArray); //This makes the allRecies array accessible in the recipeCallback function
+  recipeCallback(allRecipesArray); //This makes the allRecipes array accessible in the recipeCallback function
   
   const getMealTypeOnce = (recipes: any[]): Set<MealType> => {
     const uniqueMealType = new Set<MealType>();
@@ -46,6 +47,8 @@ export const receivedRecipeData = async (allRecipes: any) => {
 
   const mealCategories = getMealTypeOnce(allRecipes.recipes);
   mealTypeCategories = Array.from(mealCategories); //Converts from set to array
+  console.log(mealTypeCategories);
+  
 
   randomSelectedRecipes.push(
     allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)],
@@ -149,7 +152,7 @@ export const categoryCallback = async (clickedCategory: any) => {
   findCategory(clickedCategory);
 };
 
-export const recipeCallback = async (clickedRecipe: string | any[]) => {
+export const recipeCallback = async (clickedRecipe: string | recipeInterface[]) => {
   console.log(clickedRecipe);
   allRecipesArray.map((recipe) => {
     if (clickedRecipe === recipe.name) {

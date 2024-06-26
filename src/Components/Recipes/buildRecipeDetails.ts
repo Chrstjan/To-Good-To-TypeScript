@@ -13,7 +13,7 @@ export const buildRecipeDetails = async (recipe: any) => {
     clearContainer(recipeContainer);
 
     recipeContainer.innerHTML += `
-        <button id="back-btn" data-recipe-category="${recipe.mealType}">&larr;</button>`;
+        <button id="back-btn" data-recipe-category="${recipe.mealType[0]}">&larr;</button>`;
 
     let recipeDetails = `
         <figure class="recipe-figure">

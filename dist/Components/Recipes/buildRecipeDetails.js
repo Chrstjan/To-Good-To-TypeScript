@@ -19,7 +19,7 @@ export const buildRecipeDetails = (recipe) => __awaiter(void 0, void 0, void 0, 
     // clearContainer(app);
     clearContainer(recipeContainer);
     recipeContainer.innerHTML += `
-        <button id="back-btn" data-recipe-category="${recipe.mealType}">&larr;</button>`;
+        <button id="back-btn" data-recipe-category="${recipe.mealType[0]}">&larr;</button>`;
     let recipeDetails = `
         <figure class="recipe-figure">
             <img src="${recipe.image}" alt="${recipe.name} image" />
