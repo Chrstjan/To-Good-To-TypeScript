@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { buildCategoryRecipes } from "./buildCategoryRecipes.js";
 import { buildRecipeCategories } from "./buildRecipeCategories.js";
+import { buildRecipeDetails } from "./buildRecipeDetails.js";
 import { buildSelectedRecipes } from "./buildSelectedRecipes.js";
 var MealType;
 (function (MealType) {
@@ -21,6 +22,7 @@ var MealType;
     MealType["Beverage"] = "Beverage";
     MealType["Dessert"] = "Dessert";
 })(MealType || (MealType = {}));
+let allRecipesArray = [];
 let mealTypeCategories = [];
 let randomSelectedRecipes = [];
 let dinnerArray = [];
@@ -33,6 +35,8 @@ let beverageArray = [];
 let dessertArray = [];
 let miscArray = [];
 export const receivedRecipeData = (allRecipes) => __awaiter(void 0, void 0, void 0, function* () {
+    allRecipesArray = [...allRecipes.recipes];
+    recipeCallback(allRecipesArray); //This makes the allRecipes array accessible in the recipeCallback function
     const getMealTypeOnce = (recipes) => {
         const uniqueMealType = new Set();
         recipes.forEach((recipe) => {
@@ -44,6 +48,7 @@ export const receivedRecipeData = (allRecipes) => __awaiter(void 0, void 0, void
     };
     const mealCategories = getMealTypeOnce(allRecipes.recipes);
     mealTypeCategories = Array.from(mealCategories); //Converts from set to array
+    console.log(mealTypeCategories);
     randomSelectedRecipes.push(allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)]);
     console.log(randomSelectedRecipes);
     allRecipes.recipes.map((recipe) => {
@@ -119,4 +124,15 @@ export const categoryCallback = (clickedCategory) => __awaiter(void 0, void 0, v
         }
     };
     findCategory(clickedCategory);
+});
+export const recipeCallback = (clickedRecipe) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(clickedRecipe);
+    allRecipesArray.map((recipe) => {
+        if (clickedRecipe === recipe.name) {
+            buildRecipeDetails(recipe);
+        }
+        else {
+            //console.error("Recipe not found");
+        }
+    });
 });

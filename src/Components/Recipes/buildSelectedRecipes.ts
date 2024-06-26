@@ -1,3 +1,5 @@
+import { recipeCallback } from "./receivedRecipeData.js";
+
 const app = document.getElementById("app");
 const recipesContainer = document.createElement("div");
 recipesContainer.innerHTML += `<header><h2>Popular Meals:</h2></header>`;
@@ -11,7 +13,7 @@ export const buildSelectedRecipes = async (recipes: any[]) => {
 
   recipes.map((recipe) => {
     let recipeFigure = `
-        <figure class="recipe-figure">
+        <figure class="recipe-figure" data-recipe="${recipe.name}">
             <header class="recipe-header">
                 <img src="${recipe.image}" alt="${recipe.name}" />
                 <h3>${recipe.name}</h3>
@@ -31,7 +33,20 @@ export const buildSelectedRecipes = async (recipes: any[]) => {
             </figcaption>
         </figure>`;
     figureContainer.innerHTML += recipeFigure;
+    
   });
   recipesContainer.appendChild(figureContainer);
   app?.appendChild(recipesContainer);
+
+  const recipeFigure = document.querySelectorAll(".recipe-figure");
+  recipeFigure.forEach((figure) => {
+    figure.addEventListener("click", (e) => {
+        const figureName = figure.getAttribute("data-recipe");
+        recipeCallback(figureName || "");
+
+        if (recipesContainer) {
+            app?.removeChild(recipesContainer);
+        }
+    })
+  })
 };

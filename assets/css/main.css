@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap");
-.categories-container .meal-categories li button, .main-header .search-container #search-btn {
+.recipe-container #back-btn, .recipe-container .recipe-figure .recipe-details .recipe-steps-container .btn-container button, .categories-container .meal-categories li button, .main-header .search-container #search-btn {
   border: 0;
   background: transparent;
 }
@@ -42,10 +42,6 @@
   text-align: left;
   font-size: 15px;
 }
-.main-header .search-container #searchbar:-ms-input-placeholder {
-  text-align: left;
-  font-size: 15px;
-}
 .main-header .search-container #searchbar::placeholder {
   text-align: left;
   font-size: 15px;
@@ -60,6 +56,9 @@
 .categories-container {
   overflow-x: auto;
   text-align: center;
+}
+.categories-container.hide-header {
+  display: none;
 }
 .categories-container .meal-categories {
   display: flex;
@@ -133,6 +132,93 @@
 .category-recipes-container .figure-container .recipe-figure .ratings-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+.recipe-container #back-btn {
+  position: absolute;
+  left: 2%;
+  top: 0;
+  font-size: 30px;
+}
+.recipe-container .recipe-figure {
+  border: 2px solid rgba(0, 0, 0, 0.1333333333);
+  padding: 0.6rem 0.7rem;
+  margin-top: 2.5rem;
+  border-radius: 6px;
+}
+.recipe-container .recipe-figure img {
+  width: 100%;
+  border-radius: 6px;
+}
+.recipe-container .recipe-figure .recipe-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid #000;
+  padding: 0.6rem 2rem;
+  border-radius: 13px;
+}
+.recipe-container .recipe-figure .recipe-details header .overall-info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+}
+.recipe-container .recipe-figure .recipe-details header h3 {
+  text-align: center;
+}
+.recipe-container .recipe-figure .recipe-details header .additional-info {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+}
+.recipe-container .recipe-figure .recipe-details .recipe-steps-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.recipe-container .recipe-figure .recipe-details .recipe-steps-container .btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.7rem;
+}
+.recipe-container .recipe-figure .recipe-details .recipe-steps-container .btn-container button {
+  font-size: 20px;
+}
+.recipe-container .recipe-figure .recipe-details .recipe-steps-container .btn-container button.selected-btn {
+  text-decoration: underline;
+}
+.recipe-container .recipe-figure .recipe-details .recipe-steps-container .recipe-info-container .instructions-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+}
+.recipe-container .recipe-figure .recipe-details .footer-info {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
