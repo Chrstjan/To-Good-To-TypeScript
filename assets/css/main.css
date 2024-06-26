@@ -42,10 +42,6 @@
   text-align: left;
   font-size: 15px;
 }
-.main-header .search-container #searchbar:-ms-input-placeholder {
-  text-align: left;
-  font-size: 15px;
-}
 .main-header .search-container #searchbar::placeholder {
   text-align: left;
   font-size: 15px;
