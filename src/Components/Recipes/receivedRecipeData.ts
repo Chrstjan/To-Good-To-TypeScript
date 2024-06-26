@@ -13,6 +13,8 @@ enum MealType {
   Dessert = "Dessert",
 }
 
+let allRecipesArray: any[] = [];
+
 let mealTypeCategories: any[] = [];
 let randomSelectedRecipes: any[] = [];
 
@@ -26,7 +28,10 @@ let beverageArray: any[] = [];
 let dessertArray: any[] = [];
 let miscArray: any[] = [];
 
+
 export const receivedRecipeData = async (allRecipes: any) => {
+  allRecipesArray.push(allRecipes.recipes); //the array will only be accessable in the recipeCallback if i use push and not a spread operator?
+  
   const getMealTypeOnce = (recipes: any[]): Set<MealType> => {
     const uniqueMealType = new Set<MealType>();
     recipes.forEach((recipe) => {
@@ -94,6 +99,7 @@ export const receivedRecipeData = async (allRecipes: any) => {
     });
   });
 
+
   buildRecipeCategories(mealTypeCategories);
   buildSelectedRecipes(randomSelectedRecipes);
 };
@@ -140,3 +146,9 @@ export const categoryCallback = async (clickedCategory: any) => {
   };
   findCategory(clickedCategory);
 };
+
+export const recipeCallback = async (clickedRecipe: string) => {
+  console.log(allRecipesArray);
+}
+
+recipeCallback("Hello");

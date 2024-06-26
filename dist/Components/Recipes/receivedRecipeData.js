@@ -21,6 +21,7 @@ var MealType;
     MealType["Beverage"] = "Beverage";
     MealType["Dessert"] = "Dessert";
 })(MealType || (MealType = {}));
+let allRecipesArray = [];
 let mealTypeCategories = [];
 let randomSelectedRecipes = [];
 let dinnerArray = [];
@@ -33,6 +34,7 @@ let beverageArray = [];
 let dessertArray = [];
 let miscArray = [];
 export const receivedRecipeData = (allRecipes) => __awaiter(void 0, void 0, void 0, function* () {
+    allRecipesArray.push(allRecipes.recipes); //the array will only be accessable in the recipeCallback if i use push and not a spread operator?
     const getMealTypeOnce = (recipes) => {
         const uniqueMealType = new Set();
         recipes.forEach((recipe) => {
@@ -120,3 +122,7 @@ export const categoryCallback = (clickedCategory) => __awaiter(void 0, void 0, v
     };
     findCategory(clickedCategory);
 });
+export const recipeCallback = (clickedRecipe) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(allRecipesArray);
+});
+recipeCallback("Hello");
