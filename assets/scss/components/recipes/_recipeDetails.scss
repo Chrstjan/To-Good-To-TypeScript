@@ -35,7 +35,6 @@
             border-radius: 13px;
 
             header {
-
                 .overall-info-container {
                     @include m.flexBox(row, center, center, 0.7rem);
                 }
@@ -43,6 +42,37 @@
                 h3 {
                     text-align: center;
                 }
+
+                .additional-info {
+                    text-align: center;
+                    @include m.flexBox(row, space-evenly, center, 1rem);
+                }
+            }
+
+            .recipe-steps-container {
+                @include m.flexBox(column, center, center, 1rem);
+
+                .btn-container {
+                    @include m.flexBox(row, space-between, center, 0.7rem);
+                    button {
+                        @extend %btn-remove-default;
+                        font-size: 20px;
+                    }
+                    button.selected-btn {
+                        text-decoration: underline;
+                    }
+                }
+
+                .recipe-info-container {
+
+                    .instructions-list {
+                        @include m.flexBox(column, center, center, 0.7rem);
+                    }
+                }
+            }
+
+            .footer-info {
+                @include m.flexBox(column, center, center);
             }
         }
     }

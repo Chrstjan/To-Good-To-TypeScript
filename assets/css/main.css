@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap");
-.recipe-container #back-btn, .categories-container .meal-categories li button, .main-header .search-container #search-btn {
+.recipe-container #back-btn, .recipe-container .recipe-figure .recipe-details .recipe-steps-container .btn-container button, .categories-container .meal-categories li button, .main-header .search-container #search-btn {
   border: 0;
   background: transparent;
 }
@@ -177,6 +177,48 @@
 }
 .recipe-container .recipe-figure .recipe-details header h3 {
   text-align: center;
+}
+.recipe-container .recipe-figure .recipe-details header .additional-info {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+}
+.recipe-container .recipe-figure .recipe-details .recipe-steps-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.recipe-container .recipe-figure .recipe-details .recipe-steps-container .btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.7rem;
+}
+.recipe-container .recipe-figure .recipe-details .recipe-steps-container .btn-container button {
+  font-size: 20px;
+}
+.recipe-container .recipe-figure .recipe-details .recipe-steps-container .btn-container button.selected-btn {
+  text-decoration: underline;
+}
+.recipe-container .recipe-figure .recipe-details .recipe-steps-container .recipe-info-container .instructions-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+}
+.recipe-container .recipe-figure .recipe-details .footer-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 html {
