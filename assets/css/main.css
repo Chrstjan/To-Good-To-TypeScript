@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap");
-.categories-container .meal-categories li button, .main-header .search-container #search-btn {
+.recipe-container #back-btn, .categories-container .meal-categories li button, .main-header .search-container #search-btn {
   border: 0;
   background: transparent;
 }
@@ -132,6 +132,51 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+}
+
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+.recipe-container #back-btn {
+  position: absolute;
+  left: 2%;
+  top: 0;
+  font-size: 30px;
+}
+.recipe-container .recipe-figure {
+  border: 2px solid rgba(0, 0, 0, 0.1333333333);
+  padding: 0.6rem 0.7rem;
+  margin-top: 2.5rem;
+  border-radius: 6px;
+}
+.recipe-container .recipe-figure img {
+  width: 100%;
+  border-radius: 6px;
+}
+.recipe-container .recipe-figure .recipe-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid #000;
+  padding: 0.6rem 2rem;
+  border-radius: 13px;
+}
+.recipe-container .recipe-figure .recipe-details header .overall-info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+}
+.recipe-container .recipe-figure .recipe-details header h3 {
+  text-align: center;
 }
 
 html {

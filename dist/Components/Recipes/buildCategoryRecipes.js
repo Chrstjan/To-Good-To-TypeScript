@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { clearContainer } from "../app.js";
+import { recipeCallback } from "./receivedRecipeData.js";
 const app = document.getElementById("app");
 const recipesContainer = document.createElement("div");
 recipesContainer.classList.add("category-recipes-container");
@@ -23,7 +24,7 @@ export const buildCategoryRecipes = (recipes, categoryName) => __awaiter(void 0,
     </header>`;
     recipes.map((recipe) => {
         let recipeFigure = `
-        <figure class="recipe-figure">
+        <figure class="recipe-figure" data-recipe="${recipe.name}">
             <header class="recipe-header">
                 <img src="${recipe.image}" alt="${recipe.name}" />
                 <h3>${recipe.name}</h3>
@@ -46,4 +47,11 @@ export const buildCategoryRecipes = (recipes, categoryName) => __awaiter(void 0,
     });
     recipesContainer.appendChild(figureContainer);
     app === null || app === void 0 ? void 0 : app.appendChild(recipesContainer);
+    const recipeFigures = document.querySelectorAll(".recipe-figure");
+    recipeFigures.forEach((figure) => {
+        figure.addEventListener("click", () => {
+            const figureName = figure.getAttribute("data-recipe");
+            recipeCallback(figureName || "");
+        });
+    });
 });

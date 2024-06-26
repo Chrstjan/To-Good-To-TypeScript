@@ -42,7 +42,7 @@ export const buildSelectedRecipes = async (recipes: any[]) => {
   recipeFigure.forEach((figure) => {
     figure.addEventListener("click", (e) => {
         const figureName = figure.getAttribute("data-recipe");
-        recipeCallback(figureName);
+        recipeCallback(figureName || "");
     })
   })
 };
