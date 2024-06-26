@@ -8,13 +8,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { clearContainer } from "../app.js";
+import { categoryCallback } from "./receivedRecipeData.js";
 const app = document.getElementById("app");
 const recipeContainer = document.createElement("div");
 recipeContainer.classList.add("recipe-container");
-recipeContainer.innerHTML += `<button id="back-btn">&larr;</button>`;
 export const buildRecipeDetails = (recipe) => __awaiter(void 0, void 0, void 0, function* () {
     console.log(recipe);
-    clearContainer(app);
+    const categoriesHeader = document.querySelector(".categories-container");
+    categoriesHeader === null || categoriesHeader === void 0 ? void 0 : categoriesHeader.classList.toggle("hide-header");
+    // clearContainer(app);
+    clearContainer(recipeContainer);
+    recipeContainer.innerHTML += `
+        <button id="back-btn" data-recipe-category="${recipe.mealType}">&larr;</button>`;
     let recipeDetails = `
         <figure class="recipe-figure">
             <img src="${recipe.image}" alt="${recipe.name} image" />
@@ -50,8 +55,17 @@ export const buildRecipeDetails = (recipe) => __awaiter(void 0, void 0, void 0, 
         </figure>`;
     recipeContainer.innerHTML += recipeDetails;
     app === null || app === void 0 ? void 0 : app.appendChild(recipeContainer);
+    const backBtn = document.getElementById("back-btn");
+    backBtn === null || backBtn === void 0 ? void 0 : backBtn.addEventListener("click", () => {
+        const recipeCategory = backBtn.getAttribute("data-recipe-category");
+        console.log(recipeCategory);
+        categoriesHeader === null || categoriesHeader === void 0 ? void 0 : categoriesHeader.classList.toggle("hide-header");
+        categoryCallback(recipeCategory);
+        if (recipeContainer) {
+            app === null || app === void 0 ? void 0 : app.removeChild(recipeContainer);
+        }
+    });
     const recipeDetailsContainer = document.querySelector(".recipe-info-container");
-    console.log(recipeDetailsContainer);
     const ingredientsBtn = document.querySelector(".ingredients-btn");
     ingredientsBtn === null || ingredientsBtn === void 0 ? void 0 : ingredientsBtn.addEventListener("click", () => {
         clearContainer(recipeDetailsContainer);

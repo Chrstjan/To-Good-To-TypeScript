@@ -1,14 +1,19 @@
 import { clearContainer } from "../app.js";
+import { categoryCallback } from "./receivedRecipeData.js";
 
 const app = document.getElementById("app");
 const recipeContainer = document.createElement("div");
 recipeContainer.classList.add("recipe-container");
 
-recipeContainer.innerHTML += `<button id="back-btn">&larr;</button>`;
-
 export const buildRecipeDetails = async (recipe: any) => {
     console.log(recipe);
-    clearContainer(app);
+    const categoriesHeader = document.querySelector(".categories-container");
+    categoriesHeader?.classList.toggle("hide-header");
+    // clearContainer(app);
+    clearContainer(recipeContainer);
+
+    recipeContainer.innerHTML += `
+        <button id="back-btn" data-recipe-category="${recipe.mealType}">&larr;</button>`;
 
     let recipeDetails = `
         <figure class="recipe-figure">
@@ -46,9 +51,20 @@ export const buildRecipeDetails = async (recipe: any) => {
     recipeContainer.innerHTML += recipeDetails;
     app?.appendChild(recipeContainer);
 
-    const recipeDetailsContainer = document.querySelector(".recipe-info-container");
-    console.log(recipeDetailsContainer);
-    
+    const backBtn = document.getElementById("back-btn");
+    backBtn?.addEventListener("click", () => {
+        const recipeCategory = backBtn.getAttribute("data-recipe-category");
+        console.log(recipeCategory);
+        
+        categoriesHeader?.classList.toggle("hide-header");
+        categoryCallback(recipeCategory);
+
+        if (recipeContainer) {
+            app?.removeChild(recipeContainer);
+        }
+    })
+
+    const recipeDetailsContainer = document.querySelector(".recipe-info-container");    
 
     const ingredientsBtn = document.querySelector(".ingredients-btn");
     ingredientsBtn?.addEventListener("click", () => {

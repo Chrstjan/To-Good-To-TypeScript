@@ -43,6 +43,10 @@ export const buildSelectedRecipes = async (recipes: any[]) => {
     figure.addEventListener("click", (e) => {
         const figureName = figure.getAttribute("data-recipe");
         recipeCallback(figureName || "");
+
+        if (recipesContainer) {
+            app?.removeChild(recipesContainer);
+        }
     })
   })
 };

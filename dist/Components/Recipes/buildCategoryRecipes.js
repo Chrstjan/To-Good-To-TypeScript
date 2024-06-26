@@ -52,6 +52,9 @@ export const buildCategoryRecipes = (recipes, categoryName) => __awaiter(void 0,
         figure.addEventListener("click", () => {
             const figureName = figure.getAttribute("data-recipe");
             recipeCallback(figureName || "");
+            if (recipesContainer) {
+                app === null || app === void 0 ? void 0 : app.removeChild(recipesContainer);
+            }
         });
     });
 });

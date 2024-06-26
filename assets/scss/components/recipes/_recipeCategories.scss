@@ -8,6 +8,10 @@
   overflow-x: auto;
   text-align: center;
 
+  &.hide-header {
+    display: none;
+  }
+
   .meal-categories {
     @include m.flexBox(row, flex-start, center, 0.7rem);
     @extend %padding-reset;

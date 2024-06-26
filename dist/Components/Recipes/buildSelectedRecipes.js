@@ -46,6 +46,9 @@ export const buildSelectedRecipes = (recipes) => __awaiter(void 0, void 0, void 
         figure.addEventListener("click", (e) => {
             const figureName = figure.getAttribute("data-recipe");
             recipeCallback(figureName || "");
+            if (recipesContainer) {
+                app === null || app === void 0 ? void 0 : app.removeChild(recipesContainer);
+            }
         });
     });
 });

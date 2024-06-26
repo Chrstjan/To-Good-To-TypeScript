@@ -57,6 +57,9 @@
   overflow-x: auto;
   text-align: center;
 }
+.categories-container.hide-header {
+  display: none;
+}
 .categories-container .meal-categories {
   display: flex;
   flex-direction: row;
