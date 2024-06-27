@@ -7,6 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { buildSearchResult } from "../buildSearchedRecipes.js";
 import { buildCategoryRecipes } from "./buildCategoryRecipes.js";
 import { buildRecipeCategories } from "./buildRecipeCategories.js";
 import { buildRecipeDetails } from "./buildRecipeDetails.js";
@@ -136,3 +137,17 @@ export const recipeCallback = (clickedRecipe) => __awaiter(void 0, void 0, void 
         }
     });
 });
+export const recipeSearchCallback = (searchedRecipe) => {
+    let searchedRecipesArray = [];
+    console.log(searchedRecipe);
+    allRecipesArray.map((recipe) => {
+        if (recipe.name.includes(searchedRecipe)) {
+            console.log(`Match found`);
+            searchedRecipesArray.push(recipe);
+            buildSearchResult(searchedRecipesArray);
+        }
+        else {
+            // console.error('Recipe match not found');
+        }
+    });
+};

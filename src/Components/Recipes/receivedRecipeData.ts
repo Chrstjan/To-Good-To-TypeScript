@@ -1,4 +1,5 @@
 import { recipeInterface } from "../../Utils/interfaces.js";
+import { buildSearchResult } from "../buildSearchedRecipes.js";
 import { buildCategoryRecipes } from "./buildCategoryRecipes.js";
 import { buildRecipeCategories } from "./buildRecipeCategories.js";
 import { buildRecipeDetails } from "./buildRecipeDetails.js";
@@ -160,6 +161,23 @@ export const recipeCallback = async (clickedRecipe: string | recipeInterface[]) 
     }
     else {
       //console.error("Recipe not found");
+      
+    }
+  })
+  
+}
+
+export const recipeSearchCallback = (searchedRecipe: string) => {
+  let searchedRecipesArray: recipeInterface[] = [];
+  console.log(searchedRecipe);
+  allRecipesArray.map((recipe) => {
+    if (recipe.name.includes(searchedRecipe)) {
+      console.log(`Match found`);
+      searchedRecipesArray.push(recipe);
+      buildSearchResult(searchedRecipesArray);
+    }
+    else {
+      // console.error('Recipe match not found');
       
     }
   })
