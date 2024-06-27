@@ -136,3 +136,15 @@ export const recipeCallback = (clickedRecipe) => __awaiter(void 0, void 0, void 
         }
     });
 });
+export const recipeSearchCallback = (searchedRecipe) => {
+    console.log(searchedRecipe);
+    allRecipesArray.map((recipe) => {
+        if (recipe.name.includes(searchedRecipe)) {
+            console.log(`Match found`);
+            console.log(recipe);
+        }
+        else {
+            console.error('Recipe match not found');
+        }
+    });
+};

@@ -165,3 +165,18 @@ export const recipeCallback = async (clickedRecipe: string | recipeInterface[]) 
   })
   
 }
+
+export const recipeSearchCallback = (searchedRecipe: string | recipeInterface[]) => {
+  console.log(searchedRecipe);
+  allRecipesArray.map((recipe) => {
+    if (recipe.name.includes(searchedRecipe)) {
+      console.log(`Match found`);
+      console.log(recipe);
+    }
+    else {
+      console.error('Recipe match not found');
+      
+    }
+  })
+  
+}
