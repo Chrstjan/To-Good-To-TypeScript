@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { clearContainer } from "./app.js";
+import { recipeCallback } from "./Recipes/receivedRecipeData.js";
 const app = document.getElementById("app");
 const searchResultContainer = document.createElement("div");
 searchResultContainer.classList.add("search-result-container");
@@ -20,7 +21,7 @@ export const buildSearchResult = (recipes) => __awaiter(void 0, void 0, void 0, 
         </header>`;
     recipes.map((recipe) => {
         let searchedRecipes = `
-            <figure class="searched-recipe">
+            <figure class="searched-recipe" data-recipe-name="${recipe.name}">
              <header>
                 <img src="${recipe.image}" alt="${recipe.name}" />
                 <h3>${recipe.name}</h3>
@@ -34,5 +35,13 @@ export const buildSearchResult = (recipes) => __awaiter(void 0, void 0, void 0, 
         if (searchResultContainer) {
             app === null || app === void 0 ? void 0 : app.removeChild(searchResultContainer);
         }
+    });
+    const searchedRecipeFigures = document.querySelectorAll(".searched-recipe");
+    searchedRecipeFigures.forEach((figure) => {
+        figure.addEventListener("click", () => {
+            const clickedRecipe = figure.getAttribute("data-recipe-name");
+            clearContainer(app);
+            recipeCallback(clickedRecipe || "");
+        });
     });
 });

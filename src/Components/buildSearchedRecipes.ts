@@ -1,5 +1,6 @@
 import { recipeInterface } from "../Utils/interfaces.js";
 import { clearContainer } from "./app.js";
+import { recipeCallback } from "./Recipes/receivedRecipeData.js";
 
 const app = document.getElementById("app");
 const searchResultContainer = document.createElement("div");
@@ -16,7 +17,7 @@ export const buildSearchResult = async (recipes: recipeInterface[]) => {
 
    recipes.map((recipe) => {
         let searchedRecipes = `
-            <figure class="searched-recipe">
+            <figure class="searched-recipe" data-recipe-name="${recipe.name}">
              <header>
                 <img src="${recipe.image}" alt="${recipe.name}" />
                 <h3>${recipe.name}</h3>
@@ -32,5 +33,14 @@ export const buildSearchResult = async (recipes: recipeInterface[]) => {
         if (searchResultContainer) {
             app?.removeChild(searchResultContainer);
         }
+   });
+
+   const searchedRecipeFigures = document.querySelectorAll(".searched-recipe");
+   searchedRecipeFigures.forEach((figure) => {
+    figure.addEventListener("click", () => {
+        const clickedRecipe = figure.getAttribute("data-recipe-name");
+        clearContainer(app);
+        recipeCallback(clickedRecipe || "");
+    })
    })
 }

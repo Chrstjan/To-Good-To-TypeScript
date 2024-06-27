@@ -224,11 +224,22 @@
   gap: 0.5rem;
 }
 
+@keyframes modalSlideIn {
+  0% {
+    opacity: 0;
+    left: -10%;
+  }
+  100% {
+    opacity: 1;
+    left: 50%;
+  }
+}
 #app {
   position: relative;
 }
 
 .search-result-container {
+  animation: modalSlideIn 0.5s 1 forwards linear;
   position: absolute;
   top: 4.3%;
   left: 50%;

@@ -3,12 +3,14 @@
 @use "../../helpers/functions" as f;
 @use "../../helpers/placeholders" as p;
 @use "../../helpers/fonts";
+@use "../animations";
 
 #app {
     position: relative;
 }
 
 .search-result-container {
+    animation: modalSlideIn 0.5s 1 forwards linear;
     position: absolute;
     top: 4.3%;
     left: 50%;
