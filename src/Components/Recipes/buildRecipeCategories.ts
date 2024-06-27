@@ -9,7 +9,6 @@ export const buildRecipeCategories = async (categories: any) => {
   const recipeCategories = document.createElement("ul");
   recipeCategories.classList.add("meal-categories");
   categories.map((category: any) => {
-    console.log(category);
 
     const mealCategories = `<li><button class="category-btn">${category}</button></li>`;
     recipeCategories.innerHTML += mealCategories;

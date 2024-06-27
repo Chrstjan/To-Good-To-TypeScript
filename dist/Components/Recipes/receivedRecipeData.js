@@ -49,9 +49,7 @@ export const receivedRecipeData = (allRecipes) => __awaiter(void 0, void 0, void
     };
     const mealCategories = getMealTypeOnce(allRecipes.recipes);
     mealTypeCategories = Array.from(mealCategories); //Converts from set to array
-    console.log(mealTypeCategories);
     randomSelectedRecipes.push(allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)]);
-    console.log(randomSelectedRecipes);
     allRecipes.recipes.map((recipe) => {
         let mealTypeArray = recipe.mealType;
         mealTypeArray.forEach((mealType) => {
@@ -127,7 +125,6 @@ export const categoryCallback = (clickedCategory) => __awaiter(void 0, void 0, v
     findCategory(clickedCategory);
 });
 export const recipeCallback = (clickedRecipe) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(clickedRecipe);
     allRecipesArray.map((recipe) => {
         if (clickedRecipe === recipe.name) {
             buildRecipeDetails(recipe);
@@ -139,10 +136,8 @@ export const recipeCallback = (clickedRecipe) => __awaiter(void 0, void 0, void 
 });
 export const recipeSearchCallback = (searchedRecipe) => {
     let searchedRecipesArray = [];
-    console.log(searchedRecipe);
     allRecipesArray.map((recipe) => {
         if (recipe.name.includes(searchedRecipe)) {
-            console.log(`Match found`);
             searchedRecipesArray.push(recipe);
             buildSearchResult(searchedRecipesArray);
         }

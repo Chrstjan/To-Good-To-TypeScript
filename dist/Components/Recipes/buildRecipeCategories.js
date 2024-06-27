@@ -16,7 +16,6 @@ export const buildRecipeCategories = (categories) => __awaiter(void 0, void 0, v
     const recipeCategories = document.createElement("ul");
     recipeCategories.classList.add("meal-categories");
     categories.map((category) => {
-        console.log(category);
         const mealCategories = `<li><button class="category-btn">${category}</button></li>`;
         recipeCategories.innerHTML += mealCategories;
         categoriesContainer.appendChild(recipeCategories);

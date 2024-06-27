@@ -13,7 +13,6 @@ const app = document.getElementById("app");
 const searchResultContainer = document.createElement("div");
 searchResultContainer.classList.add("search-result-container");
 export const buildSearchResult = (recipes) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(recipes);
     clearContainer(searchResultContainer);
     searchResultContainer.innerHTML = `
         <header class="btn-container">
@@ -40,7 +39,9 @@ export const buildSearchResult = (recipes) => __awaiter(void 0, void 0, void 0, 
     searchedRecipeFigures.forEach((figure) => {
         figure.addEventListener("click", () => {
             const clickedRecipe = figure.getAttribute("data-recipe-name");
-            clearContainer(app);
+            if (app) {
+                clearContainer(app);
+            }
             recipeCallback(clickedRecipe || "");
         });
     });

@@ -9,7 +9,6 @@ const figureContainer = document.createElement("span");
 figureContainer.classList.add("figure-container");
 
 export const buildSelectedRecipes = async (recipes: any[]) => {
-  console.log(recipes);
 
   recipes.map((recipe) => {
     let recipeFigure = `

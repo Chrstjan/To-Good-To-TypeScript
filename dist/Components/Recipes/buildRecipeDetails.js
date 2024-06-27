@@ -13,7 +13,6 @@ const app = document.getElementById("app");
 const recipeContainer = document.createElement("div");
 recipeContainer.classList.add("recipe-container");
 export const buildRecipeDetails = (recipe) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(recipe);
     const categoriesHeader = document.querySelector(".categories-container");
     categoriesHeader === null || categoriesHeader === void 0 ? void 0 : categoriesHeader.classList.toggle("hide-header");
     // clearContainer(app);
@@ -58,7 +57,6 @@ export const buildRecipeDetails = (recipe) => __awaiter(void 0, void 0, void 0, 
     const backBtn = document.getElementById("back-btn");
     backBtn === null || backBtn === void 0 ? void 0 : backBtn.addEventListener("click", () => {
         const recipeCategory = backBtn.getAttribute("data-recipe-category");
-        console.log(recipeCategory);
         categoriesHeader === null || categoriesHeader === void 0 ? void 0 : categoriesHeader.classList.toggle("hide-header");
         categoryCallback(recipeCategory);
         if (recipeContainer) {

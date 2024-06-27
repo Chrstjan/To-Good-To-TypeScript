@@ -7,7 +7,6 @@ const searchResultContainer = document.createElement("div");
 searchResultContainer.classList.add("search-result-container");
 
 export const buildSearchResult = async (recipes: recipeInterface[]) => {
-    console.log(recipes);
     clearContainer(searchResultContainer);
 
     searchResultContainer.innerHTML = `
@@ -39,7 +38,9 @@ export const buildSearchResult = async (recipes: recipeInterface[]) => {
    searchedRecipeFigures.forEach((figure) => {
     figure.addEventListener("click", () => {
         const clickedRecipe = figure.getAttribute("data-recipe-name");
-        clearContainer(app);
+        if (app) {
+            clearContainer(app);   
+        }
         recipeCallback(clickedRecipe || "");
     })
    })

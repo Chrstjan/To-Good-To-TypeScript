@@ -6,7 +6,6 @@ const recipeContainer = document.createElement("div");
 recipeContainer.classList.add("recipe-container");
 
 export const buildRecipeDetails = async (recipe: any) => {
-    console.log(recipe);
     const categoriesHeader = document.querySelector(".categories-container");
     categoriesHeader?.classList.toggle("hide-header");
     // clearContainer(app);
@@ -54,7 +53,6 @@ export const buildRecipeDetails = async (recipe: any) => {
     const backBtn = document.getElementById("back-btn");
     backBtn?.addEventListener("click", () => {
         const recipeCategory = backBtn.getAttribute("data-recipe-category");
-        console.log(recipeCategory);
         
         categoriesHeader?.classList.toggle("hide-header");
         categoryCallback(recipeCategory);
