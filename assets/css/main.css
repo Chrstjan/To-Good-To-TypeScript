@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap");
-.recipe-container #back-btn, .recipe-container .recipe-figure .recipe-details .recipe-steps-container .btn-container button, .categories-container .meal-categories li button, .main-header .search-container #search-btn {
+.search-result-container .btn-container .close-btn, .recipe-container #back-btn, .recipe-container .recipe-figure .recipe-details .recipe-steps-container .btn-container button, .categories-container .meal-categories li button, .main-header .search-container #search-btn {
   border: 0;
   background: transparent;
 }
@@ -222,6 +222,47 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+}
+
+#app {
+  position: relative;
+}
+
+.search-result-container {
+  position: absolute;
+  top: 4.3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #159a9e;
+  width: 100%;
+  border-radius: 2px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+.search-result-container .btn-container {
+  position: absolute;
+  right: 0;
+}
+.search-result-container .btn-container .close-btn {
+  font-size: 20px;
+  color: #fff;
+}
+.search-result-container .searched-recipe header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  border: 2px solid #000;
+  border-radius: 9px;
+  padding: 0.4rem 0.7rem 0.4rem 0.2rem;
+  background: #fff;
+}
+.search-result-container .searched-recipe header img {
+  width: 17vw;
+}
+.search-result-container .searched-recipe header h3 {
+  margin: 0;
 }
 
 html {
