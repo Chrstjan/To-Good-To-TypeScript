@@ -1,5 +1,5 @@
 import { recipeInterface } from "../../Utils/interfaces.js";
-import { buildSearchResult } from "../buildSearchedRecipes.js";
+import { buildSearchResult } from "../Searchbar/buildSearchedRecipes.js";
 import { buildCategoryRecipes } from "./buildCategoryRecipes.js";
 import { buildRecipeCategories } from "./buildRecipeCategories.js";
 import { buildRecipeDetails } from "./buildRecipeDetails.js";

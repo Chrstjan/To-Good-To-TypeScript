@@ -1,4 +1,4 @@
-import { recipeSearchCallback } from "./Recipes/receivedRecipeData.js";
+import { recipeSearchCallback } from "../Recipes/receivedRecipeData.js";
 
 const searchbar = document.getElementById("searchbar");
 const searchBtn = document.getElementById("search-btn");

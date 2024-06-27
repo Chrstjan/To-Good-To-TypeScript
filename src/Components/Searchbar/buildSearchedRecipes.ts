@@ -1,6 +1,6 @@
-import { recipeInterface } from "../Utils/interfaces.js";
-import { clearContainer } from "./app.js";
-import { recipeCallback } from "./Recipes/receivedRecipeData.js";
+import { recipeInterface } from "../../Utils/interfaces.js";
+import { clearContainer } from "../app.js";
+import { recipeCallback } from "../Recipes/receivedRecipeData.js";
 
 const app = document.getElementById("app");
 const searchResultContainer = document.createElement("div");
