@@ -7,13 +7,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { clearContainer } from "./app.js";
-import { recipeCallback } from "./Recipes/receivedRecipeData.js";
+import { clearContainer } from "../app.js";
+import { recipeCallback } from "../Recipes/receivedRecipeData.js";
 const app = document.getElementById("app");
 const searchResultContainer = document.createElement("div");
 searchResultContainer.classList.add("search-result-container");
 export const buildSearchResult = (recipes) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(recipes);
     clearContainer(searchResultContainer);
     searchResultContainer.innerHTML = `
         <header class="btn-container">
@@ -40,7 +39,9 @@ export const buildSearchResult = (recipes) => __awaiter(void 0, void 0, void 0, 
     searchedRecipeFigures.forEach((figure) => {
         figure.addEventListener("click", () => {
             const clickedRecipe = figure.getAttribute("data-recipe-name");
-            clearContainer(app);
+            if (app) {
+                clearContainer(app);
+            }
             recipeCallback(clickedRecipe || "");
         });
     });

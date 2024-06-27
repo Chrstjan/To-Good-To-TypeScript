@@ -12,7 +12,6 @@ export const buildCategoryRecipes = async (
   recipes: any[],
   categoryName: string
 ) => {
-  console.log(recipes);
   clearContainer(figureContainer);
   clearContainer(recipesContainer);
 

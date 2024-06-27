@@ -15,7 +15,6 @@ recipesContainer.classList.add("category-recipes-container");
 const figureContainer = document.createElement("span");
 figureContainer.classList.add("figure-container");
 export const buildCategoryRecipes = (recipes, categoryName) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(recipes);
     clearContainer(figureContainer);
     clearContainer(recipesContainer);
     recipesContainer.innerHTML += `

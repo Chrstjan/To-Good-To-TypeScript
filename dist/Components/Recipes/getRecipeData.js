@@ -12,6 +12,5 @@ import { receivedRecipeData } from "./receivedRecipeData.js";
 export const getRecipes = () => __awaiter(void 0, void 0, void 0, function* () {
     const endpoint = "https://dummyjson.com/recipes?limit=0";
     const data = yield myFetchData(endpoint);
-    console.log(data);
     receivedRecipeData(data);
 });

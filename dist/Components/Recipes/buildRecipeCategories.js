@@ -7,16 +7,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { clearContainer } from "../app.js";
 import { categoryCallback } from "./receivedRecipeData.js";
 const app = document.getElementById("app");
 const categoriesContainer = document.createElement("div");
 categoriesContainer.classList.add("categories-container");
 categoriesContainer.innerHTML += `<h2>Categories:</h2>`;
 export const buildRecipeCategories = (categories) => __awaiter(void 0, void 0, void 0, function* () {
+    clearContainer(categoriesContainer);
     const recipeCategories = document.createElement("ul");
     recipeCategories.classList.add("meal-categories");
     categories.map((category) => {
-        console.log(category);
         const mealCategories = `<li><button class="category-btn">${category}</button></li>`;
         recipeCategories.innerHTML += mealCategories;
         categoriesContainer.appendChild(recipeCategories);

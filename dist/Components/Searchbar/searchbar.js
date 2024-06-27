@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { recipeSearchCallback } from "./Recipes/receivedRecipeData.js";
+import { recipeSearchCallback } from "../Recipes/receivedRecipeData.js";
 const searchbar = document.getElementById("searchbar");
 const searchBtn = document.getElementById("search-btn");
 export const getSearchedRecipe = () => __awaiter(void 0, void 0, void 0, function* () {

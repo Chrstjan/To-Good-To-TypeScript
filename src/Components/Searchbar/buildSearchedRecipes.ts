@@ -1,13 +1,12 @@
-import { recipeInterface } from "../Utils/interfaces.js";
-import { clearContainer } from "./app.js";
-import { recipeCallback } from "./Recipes/receivedRecipeData.js";
+import { recipeInterface } from "../../Utils/interfaces.js";
+import { clearContainer } from "../app.js";
+import { recipeCallback } from "../Recipes/receivedRecipeData.js";
 
 const app = document.getElementById("app");
 const searchResultContainer = document.createElement("div");
 searchResultContainer.classList.add("search-result-container");
 
 export const buildSearchResult = async (recipes: recipeInterface[]) => {
-    console.log(recipes);
     clearContainer(searchResultContainer);
 
     searchResultContainer.innerHTML = `
@@ -39,7 +38,9 @@ export const buildSearchResult = async (recipes: recipeInterface[]) => {
    searchedRecipeFigures.forEach((figure) => {
     figure.addEventListener("click", () => {
         const clickedRecipe = figure.getAttribute("data-recipe-name");
-        clearContainer(app);
+        if (app) {
+            clearContainer(app);   
+        }
         recipeCallback(clickedRecipe || "");
     })
    })

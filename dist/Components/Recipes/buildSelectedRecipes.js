@@ -15,7 +15,6 @@ recipesContainer.classList.add("selected-recipes");
 const figureContainer = document.createElement("span");
 figureContainer.classList.add("figure-container");
 export const buildSelectedRecipes = (recipes) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(recipes);
     recipes.map((recipe) => {
         let recipeFigure = `
         <figure class="recipe-figure" data-recipe="${recipe.name}">

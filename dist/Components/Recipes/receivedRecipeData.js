@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { buildSearchResult } from "../buildSearchedRecipes.js";
+import { buildSearchResult } from "../Searchbar/buildSearchedRecipes.js";
 import { buildCategoryRecipes } from "./buildCategoryRecipes.js";
 import { buildRecipeCategories } from "./buildRecipeCategories.js";
 import { buildRecipeDetails } from "./buildRecipeDetails.js";
@@ -24,8 +24,8 @@ var MealType;
     MealType["Dessert"] = "Dessert";
 })(MealType || (MealType = {}));
 let allRecipesArray = [];
-let mealTypeCategories = [];
-let randomSelectedRecipes = [];
+export let mealTypeCategories = [];
+export let randomSelectedRecipes = [];
 let dinnerArray = [];
 let lunchArray = [];
 let sideDishArray = [];
@@ -49,9 +49,7 @@ export const receivedRecipeData = (allRecipes) => __awaiter(void 0, void 0, void
     };
     const mealCategories = getMealTypeOnce(allRecipes.recipes);
     mealTypeCategories = Array.from(mealCategories); //Converts from set to array
-    console.log(mealTypeCategories);
     randomSelectedRecipes.push(allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)], allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)]);
-    console.log(randomSelectedRecipes);
     allRecipes.recipes.map((recipe) => {
         let mealTypeArray = recipe.mealType;
         mealTypeArray.forEach((mealType) => {
@@ -127,7 +125,6 @@ export const categoryCallback = (clickedCategory) => __awaiter(void 0, void 0, v
     findCategory(clickedCategory);
 });
 export const recipeCallback = (clickedRecipe) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(clickedRecipe);
     allRecipesArray.map((recipe) => {
         if (clickedRecipe === recipe.name) {
             buildRecipeDetails(recipe);
@@ -139,10 +136,8 @@ export const recipeCallback = (clickedRecipe) => __awaiter(void 0, void 0, void 
 });
 export const recipeSearchCallback = (searchedRecipe) => {
     let searchedRecipesArray = [];
-    console.log(searchedRecipe);
     allRecipesArray.map((recipe) => {
         if (recipe.name.includes(searchedRecipe)) {
-            console.log(`Match found`);
             searchedRecipesArray.push(recipe);
             buildSearchResult(searchedRecipesArray);
         }

@@ -1,5 +1,5 @@
 import { recipeInterface } from "../../Utils/interfaces.js";
-import { buildSearchResult } from "../buildSearchedRecipes.js";
+import { buildSearchResult } from "../Searchbar/buildSearchedRecipes.js";
 import { buildCategoryRecipes } from "./buildCategoryRecipes.js";
 import { buildRecipeCategories } from "./buildRecipeCategories.js";
 import { buildRecipeDetails } from "./buildRecipeDetails.js";
@@ -18,8 +18,8 @@ enum MealType {
 
 let allRecipesArray: recipeInterface[] = [];
 
-let mealTypeCategories: any[] = [];
-let randomSelectedRecipes: recipeInterface[] = [];
+export let mealTypeCategories: any[] = [];
+export let randomSelectedRecipes: recipeInterface[] = [];
 
 let dinnerArray: recipeInterface[] = [];
 let lunchArray: recipeInterface[] = [];
@@ -48,7 +48,6 @@ export const receivedRecipeData = async (allRecipes: any) => {
 
   const mealCategories = getMealTypeOnce(allRecipes.recipes);
   mealTypeCategories = Array.from(mealCategories); //Converts from set to array
-  console.log(mealTypeCategories);
   
 
   randomSelectedRecipes.push(
@@ -57,7 +56,6 @@ export const receivedRecipeData = async (allRecipes: any) => {
     allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)],
     allRecipes.recipes[Math.floor(Math.random() * allRecipes.recipes.length)]
   );
-  console.log(randomSelectedRecipes);
 
   allRecipes.recipes.map((recipe: any) => {
     let mealTypeArray = recipe.mealType;
@@ -154,7 +152,6 @@ export const categoryCallback = async (clickedCategory: any) => {
 };
 
 export const recipeCallback = async (clickedRecipe: string | recipeInterface[]) => {
-  console.log(clickedRecipe);
   allRecipesArray.map((recipe) => {
     if (clickedRecipe === recipe.name) {
       buildRecipeDetails(recipe);
@@ -169,10 +166,8 @@ export const recipeCallback = async (clickedRecipe: string | recipeInterface[]) 
 
 export const recipeSearchCallback = (searchedRecipe: string) => {
   let searchedRecipesArray: recipeInterface[] = [];
-  console.log(searchedRecipe);
   allRecipesArray.map((recipe) => {
     if (recipe.name.includes(searchedRecipe)) {
-      console.log(`Match found`);
       searchedRecipesArray.push(recipe);
       buildSearchResult(searchedRecipesArray);
     }
