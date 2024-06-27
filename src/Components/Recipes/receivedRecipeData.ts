@@ -18,8 +18,8 @@ enum MealType {
 
 let allRecipesArray: recipeInterface[] = [];
 
-let mealTypeCategories: any[] = [];
-let randomSelectedRecipes: recipeInterface[] = [];
+export let mealTypeCategories: any[] = [];
+export let randomSelectedRecipes: recipeInterface[] = [];
 
 let dinnerArray: recipeInterface[] = [];
 let lunchArray: recipeInterface[] = [];

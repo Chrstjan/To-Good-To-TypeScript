@@ -1,3 +1,4 @@
+import { clearContainer } from "../app.js";
 import { categoryCallback } from "./receivedRecipeData.js";
 
 const app = document.getElementById("app");
@@ -6,6 +7,7 @@ categoriesContainer.classList.add("categories-container");
 categoriesContainer.innerHTML += `<h2>Categories:</h2>`;
 
 export const buildRecipeCategories = async (categories: any) => {
+  clearContainer(categoriesContainer);
   const recipeCategories = document.createElement("ul");
   recipeCategories.classList.add("meal-categories");
   categories.map((category: any) => {
