@@ -1,5 +1,6 @@
 # Too Good To TypeScript
 
 Too Good To Bo Remade with Scss & TypeScript
-Pages:
-....
+
+# Github Page:
+https://chrstjan.github.io/Too-Good-To-TypeScript/
