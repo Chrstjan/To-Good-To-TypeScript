@@ -14,18 +14,39 @@
         top: 0;
         @extend %btn-remove-default;
         font-size: 30px;
+
+        @media (min-width: 1300px) {
+            font-size: 40px;
+
+            &:hover {
+                cursor: pointer;
+                scale: 1.1;
+            }
+        }
     }
 
     .recipe-figure {
         border: 2px solid #00000022;
         padding: 0.6rem 0.7rem;
         margin-top: 2.5rem;
-
         border-radius: 6px;
+
+        @media (min-width: 1300px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-content: center;
+            align-items: center;
+            gap: 0.6rem;
+        }
 
         img {
             width: 100%;
             border-radius: 6px;
+
+            @media (min-width: 1300px) {
+                width: 35vw;
+
+            }
         }
 
         .recipe-details {
@@ -34,18 +55,46 @@
             padding: 0.6rem 2rem;
             border-radius: 13px;
 
+            @media (min-width: 1300px) {
+                & {
+                    height: 100%
+                }
+            }
+
             header {
                 .overall-info-container {
                     @include m.flexBox(row, center, center, 0.7rem);
+
+                    p {
+                        @media (min-width: 1300px) {
+                            & {
+                                font-size: 19px;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
                 }
 
                 h3 {
                     text-align: center;
+
+                    @media (min-width: 1300px) {
+                        & {
+                            font-size: 22px;
+                        }
+                    }
                 }
 
                 .additional-info {
                     text-align: center;
                     @include m.flexBox(row, space-evenly, center, 1rem);
+
+                    p {
+                        @media (min-width: 1300px) {
+                            font-size: 19px;
+                            text-decoration: underline;
+                        }
+                    }
                 }
             }
 
@@ -54,10 +103,19 @@
 
                 .btn-container {
                     @include m.flexBox(row, space-between, center, 0.7rem);
+
                     button {
                         @extend %btn-remove-default;
                         font-size: 20px;
+
+                        @media (min-width: 1300px) {
+                            &:hover {
+                                cursor: pointer;
+                                scale: 1.1;
+                            }
+                        }
                     }
+
                     button.selected-btn {
                         text-decoration: underline;
                     }
@@ -68,11 +126,31 @@
                     .instructions-list {
                         @include m.flexBox(column, center, center, 0.7rem);
                     }
+
+                    li {
+                        @media (min-width: 1300px) {
+                            & {
+                                font-size: 18px;
+                            }
+                        }
+                    }
                 }
             }
 
             .footer-info {
                 @include m.flexBox(column, center, center);
+
+                h4 {
+                    @media (min-width: 1300px) {
+                        font-size: 20px;
+                    }
+                }
+
+                p {
+                    @media (min-width: 1300px) {
+                        font-size: 20px;
+                    }
+                }
             }
         }
     }

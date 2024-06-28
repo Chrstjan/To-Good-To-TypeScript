@@ -17,6 +17,12 @@
     @extend %padding-reset;
     padding: 0rem 0.5rem;
 
+    @media (min-width: 1300px) {
+      & {
+        justify-content: center;
+      }
+    }
+
     li {
       list-style: none;
 
@@ -26,6 +32,18 @@
         background: v.$button-background;
         border-radius: 5px;
         color: v.$header-text-color;
+
+        @media (min-width: 1300px) {
+          & {
+            padding: 1.6rem 2rem;
+            border-radius: 7px;
+
+            &:hover {
+              cursor: pointer;
+              scale: 1.1;
+            }
+          }
+        }
       }
     }
   }

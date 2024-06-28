@@ -11,6 +11,12 @@
   #header-logo {
     width: 23vw;
     padding: 0.7rem 0rem 0rem 0rem;
+
+    @media (min-width: 1300px) {
+      & {
+        width: 10vw;
+      }
+    }
   }
 
   #header-name {
@@ -31,6 +37,13 @@
       &::placeholder {
         text-align: left;
         font-size: 15px;
+        text-align: left;
+      }
+
+      @media (min-width: 1300px) {
+        & {
+          padding: 0.7rem 6rem;
+        }
       }
     }
 
@@ -40,6 +53,14 @@
       left: 82%;
       top: 10%;
       font-size: 20px;
+
+      @media (min-width: 1300px) {
+        & {
+          left: 85%;
+          top: 7%;
+          font-size: 24px;
+        }
+      }
     }
   }
 }

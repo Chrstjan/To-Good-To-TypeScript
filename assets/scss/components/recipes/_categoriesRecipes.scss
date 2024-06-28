@@ -14,12 +14,23 @@
     gap: 1.4rem;
     padding-bottom: 1rem;
 
+    @media (min-width: 1300px) {
+      @include m.gridTemplate(3, 1fr);
+    }
+
     .recipe-figure {
       border: 2px solid #000;
       border-radius: 12px;
       @extend %margin-reset;
       margin: 0 2rem;
       padding: 0.7rem 1rem;
+
+      @media (min-width: 1300px) {
+        &:hover {
+          cursor: pointer;
+          scale: 1.04;
+        }
+      }
 
       .recipe-header {
         img {
@@ -29,6 +40,20 @@
 
       .ratings-container {
         @include m.flexBox(row, center, center);
+
+        p {
+          @media (min-width: 1300px) {
+            font-size: 19px;
+          }
+        }
+      }
+
+      .info-container {
+        p {
+          @media (min-width: 1300px) {
+            font-size: 19px;
+          }
+        }
       }
     }
   }

@@ -13,15 +13,34 @@
     justify-content: center;
     align-items: center;
 
+    @media (min-width: 1300px) {
+      @include m.gridTemplate(2, 1fr);
+    }
+
     .recipe-figure {
       @include m.flexBox(column, center, center, 0.6rem);
       border: 2px solid #000;
       border-radius: 12px;
       padding: 0.5rem 0.7rem;
 
+      @media (min-width: 1300px) {
+        width: 70%;
+
+        &:hover {
+          cursor: pointer;
+          scale: 1.02;
+        }
+      }
+
       .recipe-header {
         img {
           width: 100%;
+
+          @media (min-width: 1300px) {
+            & {
+              width: 100%;
+            }
+          }
         }
       }
 
